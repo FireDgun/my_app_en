@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect, useContext } from "react";
-import { TextField, Typography, Button, Box, Select } from "@mui/material";
+import { Typography, Button, Box, Select } from "@mui/material";
 import { Card, CardContent, CardMedia, Grid } from "@mui/material";
 import CountDown from "./CountDown";
 import { LeaderboardContext } from "./LeaderboardProvider";
@@ -70,8 +70,8 @@ const Quiz = ({ onNext }) => {
     const data = JSON.parse(localStorage.getItem("quizAnswers"));
     let counter = 0;
     try {
-      data.map((question) => {
-        if (parseInt(question.answer) == question.correctAnswer) counter++;
+      data.forEach((question) => {
+        if (parseInt(question.answer) === question.correctAnswer) counter++;
       });
     } catch (error) {
       console.log(error);
@@ -126,7 +126,7 @@ const Quiz = ({ onNext }) => {
                 sx={{ textAlign: "right" }}
                 key={JSON.stringify(line)}
               >
-                {index == questions[currentIndex].text.split(".").length - 1
+                {index === questions[currentIndex].text.split(".").length - 1
                   ? "?"
                   : ""}
                 {line}

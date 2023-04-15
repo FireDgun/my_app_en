@@ -6,11 +6,11 @@ import {
   TableRow,
   Typography,
 } from "@mui/material";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { LeaderboardContext } from "./LeaderboardProvider";
 
 const Leaderboard = () => {
-  const { users, setUsers } = useContext(LeaderboardContext);
+  const { users } = useContext(LeaderboardContext);
 
   console.log(users);
   return (
@@ -33,7 +33,7 @@ const Leaderboard = () => {
               sx={{
                 backgroundColor:
                   user?.you ||
-                  user.userDetails.email ==
+                  user.userDetails.email ===
                     JSON.parse(localStorage.getItem("userDetails")).email
                     ? "yellow"
                     : "transparent",

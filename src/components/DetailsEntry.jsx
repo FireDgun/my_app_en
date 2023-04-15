@@ -69,7 +69,7 @@ const DetailsEntry = ({ onNext }) => {
           color="primary"
           onClick={onNext}
           disabled={
-            userDetails.email == "" || userDetails.name == "" ? true : false
+            userDetails.email === "" || userDetails.name === "" ? true : false
           }
         >
           הבא

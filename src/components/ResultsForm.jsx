@@ -1,18 +1,9 @@
 import React, { useState } from "react";
-import {
-  TextField,
-  Button,
-  Typography,
-  Grid,
-  Select,
-  MenuItem,
-} from "@mui/material";
+import { Button, Typography, Grid, Select, MenuItem } from "@mui/material";
 import firebase from ".././firebase"; // Import firebase
-import Leaderboard from "./LeaderBoard";
 
 const ResultsForm = ({ games, onNext }) => {
   const [userResults, setUserResults] = useState({});
-  const [score, setScore] = useState(null);
 
   const handleChange = (id, type, value) => {
     setUserResults({
@@ -49,10 +40,7 @@ const ResultsForm = ({ games, onNext }) => {
       }
     });
 
-    setScore(correctGuesses);
-
     // Get the data from the localStorage
-    const storedGames = JSON.parse(localStorage.getItem("games"));
     const storedQuizAnswers = JSON.parse(localStorage.getItem("quizAnswers"));
     const storedUserDetails = JSON.parse(localStorage.getItem("userDetails"));
     const normalizedGames = games.map((game) => {

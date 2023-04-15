@@ -6,7 +6,7 @@ const Instructions = ({ text, onNext }) => {
   const { setUpdateRank } = useContext(LeaderboardContext);
   useEffect(() => {
     setUpdateRank((prev) => !prev);
-  }, []);
+  }, [setUpdateRank]);
   return (
     <div>
       <Typography

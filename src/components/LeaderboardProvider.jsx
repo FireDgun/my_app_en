@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import firebase from "../firebase";
-import { collection, orderBy, limit, getDocs, query } from "firebase/firestore";
+import { collection, orderBy, getDocs, query } from "firebase/firestore";
 
 export const LeaderboardContext = createContext();
 
@@ -24,7 +24,7 @@ const LeaderboardProvider = ({ children, step }) => {
       };
       setAllUsers((prevUsers) =>
         [
-          ...prevUsers.filter((item) => item?.userDetails?.name != "את/ה"),
+          ...prevUsers.filter((item) => item?.userDetails?.name !== "את/ה"),
           myData,
         ].sort(
           (a, b) => parseInt(b.correctGuesses) - parseInt(a.correctGuesses)
@@ -64,7 +64,7 @@ const LeaderboardProvider = ({ children, step }) => {
 
           if (
             user?.you ||
-            user.userDetails.email ==
+            user.userDetails.email ===
               JSON.parse(localStorage.getItem("userDetails")).email
           )
             return {
@@ -72,7 +72,7 @@ const LeaderboardProvider = ({ children, step }) => {
               userDetails: { ...user.userDetails },
               rank: index + 1,
             };
-          return;
+          return null;
         })
         .filter((item) => item)
     );
