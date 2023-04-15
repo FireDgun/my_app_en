@@ -7,6 +7,7 @@ const Instructions = ({ text, onNext }) => {
   useEffect(() => {
     setUpdateRank((prev) => !prev);
   }, [setUpdateRank]);
+  console.log(text);
   return (
     <div>
       <Typography
@@ -15,9 +16,16 @@ const Instructions = ({ text, onNext }) => {
       >
         הוראות
       </Typography>
-      <Typography variant="body1" sx={{ textAlign: "right" }}>
-        {text}
-      </Typography>
+      {text.split(".").map((line, index) => (
+        <Typography
+          variant="body1"
+          sx={{ textAlign: "right" }}
+          key={JSON.stringify(line)}
+        >
+          {index === text.split(".").length - 1 ? "!" : "."}
+          {line}
+        </Typography>
+      ))}
       <Button onClick={onNext} variant="contained" color="primary">
         הבא
       </Button>
