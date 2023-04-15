@@ -1,16 +1,27 @@
 import React, { useState } from "react";
 import { Button, Typography, Grid, Select, MenuItem } from "@mui/material";
 import firebase from ".././firebase"; // Import firebase
+const generateInitialState = (games) => {
+  const initialState = {};
 
+  games.forEach((game) => {
+    initialState[`${game.id}-home`] = "";
+    initialState[`${game.id}-away`] = "";
+  });
+
+  return initialState;
+};
 const ResultsForm = ({ games, onNext }) => {
-  const [userResults, setUserResults] = useState({});
+  const [userResults, setUserResults] = useState(generateInitialState(games));
 
   const handleChange = (id, type, value) => {
+    console.log(userResults);
     setUserResults({
       ...userResults,
       [`${id}-${type}`]: parseInt(value, 10) || 0,
     });
   };
+
   const saveToFirestore = (data) => {
     const db = firebase.firestore();
     db.collection("results")
@@ -57,7 +68,9 @@ const ResultsForm = ({ games, onNext }) => {
     });
     onNext();
   };
-
+  const isFormComplete = () => {
+    return Object.values(userResults).every((value) => value !== "");
+  };
   return (
     <Grid
       container
@@ -82,11 +95,11 @@ const ResultsForm = ({ games, onNext }) => {
             spacing={2}
             alignItems="center"
             justifyContent="end"
-            key={game.id}
+            key={JSON.stringify(game)}
             style={{ marginTop: "16px" }}
           >
             <Grid item xs={2} sm={2} md={2} lg={2} xl={2}>
-              <Typography variant="body">{game.homeTeam}</Typography>
+              <Typography variant="body1">{game.homeTeam}</Typography>
             </Grid>
             <Grid item xs={2} sm={2} md={2} lg={2} xl={2}>
               <Select
@@ -94,13 +107,16 @@ const ResultsForm = ({ games, onNext }) => {
                 variant="outlined"
                 style={{ width: "50px" }}
                 onChange={(e) => handleChange(game.id, "home", e.target.value)}
-                inputProps={{
-                  name: "home-score",
-                  id: "home-score",
-                }}
+                value={
+                  userResults[`${game.id}-home`] === 0
+                    ? 0
+                    : userResults[`${game.id}-home`] || ""
+                }
               >
                 {[...Array(11).keys()].map((num) => (
-                  <MenuItem value={num}>{num}</MenuItem>
+                  <MenuItem value={num} key={num}>
+                    {num}
+                  </MenuItem>
                 ))}
               </Select>
             </Grid>
@@ -113,18 +129,21 @@ const ResultsForm = ({ games, onNext }) => {
                 variant="outlined"
                 style={{ width: "50px" }}
                 onChange={(e) => handleChange(game.id, "away", e.target.value)}
-                inputProps={{
-                  name: "away-score",
-                  id: "away-score",
-                }}
+                value={
+                  userResults[`${game.id}-away`] === 0
+                    ? 0
+                    : userResults[`${game.id}-away`] || ""
+                }
               >
                 {[...Array(11).keys()].map((num) => (
-                  <MenuItem value={num}>{num}</MenuItem>
+                  <MenuItem value={num} key={num}>
+                    {num}
+                  </MenuItem>
                 ))}
               </Select>
             </Grid>
             <Grid item xs={2} sm={2} md={2} lg={2} xl={2}>
-              <Typography variant="body">{game.awayTeam}</Typography>
+              <Typography variant="body1">{game.awayTeam}</Typography>
             </Grid>
           </Grid>
         ))}
@@ -136,7 +155,7 @@ const ResultsForm = ({ games, onNext }) => {
             onClick={handleSubmit}
             variant="contained"
             color="primary"
-            disabled={Object.keys(userResults).length < 18}
+            disabled={!isFormComplete()}
           >
             OK
           </Button>

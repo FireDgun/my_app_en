@@ -48,21 +48,21 @@ const games = [
   {
     homeTeam: "הפועל ירושלים",
     awayTeam: "מ.ס אשדוד",
-    id: 6,
+    id: 7,
     homeScore: 2,
     awayScore: 1,
   },
   {
     homeTeam: "בני יהודה",
     awayTeam: "הפועל כפר סבא",
-    id: 6,
+    id: 8,
     homeScore: 0,
     awayScore: 1,
   },
   {
     homeTeam: "עירוני קרית שמונה",
     awayTeam: "מכבי נתניה",
-    id: 7,
+    id: 9,
     homeScore: 4,
     awayScore: 3,
   },
@@ -103,21 +103,21 @@ const MemoryGame = ({ onNext }) => {
             elevation={3}
             style={{ padding: "16px", backgroundColor: "#f5f5f5" }}
           >
-            <Typography variant="body">
+            <Typography variant="body1">
               {randomGames[currentIndex].awayTeam}
             </Typography>
           </Paper>
         </Grid>
         <Grid item>
-          <Typography variant="body">
+          <Typography variant="body1">
             {randomGames[currentIndex].awayScore}
           </Typography>
         </Grid>
         <Grid item>
-          <Typography variant="body">vs</Typography>
+          <Typography variant="body1">vs</Typography>
         </Grid>
         <Grid item>
-          <Typography variant="body">
+          <Typography variant="body1">
             {randomGames[currentIndex].homeScore}
           </Typography>
         </Grid>
@@ -126,7 +126,7 @@ const MemoryGame = ({ onNext }) => {
             elevation={3}
             style={{ padding: "16px", backgroundColor: "#f5f5f5" }}
           >
-            <Typography variant="body">
+            <Typography variant="body1">
               {randomGames[currentIndex].homeTeam}
             </Typography>
           </Paper>
