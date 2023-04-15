@@ -72,7 +72,7 @@ const ResultsForm = ({ games, onNext }) => {
         direction="column"
         alignItems="center"
       >
-        <Typography variant="h4">
+        <Typography variant="h6">
           הכנס את תוצאות המשחקים על פי מה שאת/ה זוכר/ת
         </Typography>
         <br />
@@ -85,14 +85,14 @@ const ResultsForm = ({ games, onNext }) => {
             key={game.id}
             style={{ marginTop: "16px" }}
           >
-            <Grid item>
-              <Typography variant="h6">{game.homeTeam}</Typography>
+            <Grid item xs={2} sm={2} md={2} lg={2} xl={2}>
+              <Typography variant="body">{game.homeTeam}</Typography>
             </Grid>
-            <Grid item>
+            <Grid item xs={2} sm={2} md={2} lg={2} xl={2}>
               <Select
                 label="Home Score"
                 variant="outlined"
-                style={{ width: "100px" }}
+                style={{ width: "50px" }}
                 onChange={(e) => handleChange(game.id, "home", e.target.value)}
                 inputProps={{
                   name: "home-score",
@@ -104,14 +104,14 @@ const ResultsForm = ({ games, onNext }) => {
                 ))}
               </Select>
             </Grid>
-            <Grid item>
-              <Typography variant="h6">vs</Typography>
+            <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>
+              <Typography variant="body">vs</Typography>
             </Grid>
-            <Grid item>
+            <Grid item xs={2} sm={2} md={2} lg={2} xl={2}>
               <Select
                 label="Away Score"
                 variant="outlined"
-                style={{ width: "100px" }}
+                style={{ width: "50px" }}
                 onChange={(e) => handleChange(game.id, "away", e.target.value)}
                 inputProps={{
                   name: "away-score",
@@ -123,8 +123,8 @@ const ResultsForm = ({ games, onNext }) => {
                 ))}
               </Select>
             </Grid>
-            <Grid item>
-              <Typography variant="h6">{game.awayTeam}</Typography>
+            <Grid item xs={2} sm={2} md={2} lg={2} xl={2}>
+              <Typography variant="body">{game.awayTeam}</Typography>
             </Grid>
           </Grid>
         ))}
@@ -136,7 +136,7 @@ const ResultsForm = ({ games, onNext }) => {
             onClick={handleSubmit}
             variant="contained"
             color="primary"
-            disabled={Object.keys(userResults).length < 14}
+            disabled={Object.keys(userResults).length < 18}
           >
             OK
           </Button>

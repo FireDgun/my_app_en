@@ -71,14 +71,14 @@ const games = [
 const MemoryGame = ({ onNext }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [randomGames, setRandomGames] = useState([]);
-  const [timer, setTimer] = useState(5);
+  const [timer, setTimer] = useState(10);
 
   useEffect(() => {
     setRandomGames(games);
     localStorage.setItem("games", JSON.stringify(games));
   }, []);
   useEffect(() => {
-    setTimer(5);
+    setTimer(10);
   }, [currentIndex]);
 
   const handleNext = () => {
@@ -103,21 +103,21 @@ const MemoryGame = ({ onNext }) => {
             elevation={3}
             style={{ padding: "16px", backgroundColor: "#f5f5f5" }}
           >
-            <Typography variant="h6">
+            <Typography variant="body">
               {randomGames[currentIndex].awayTeam}
             </Typography>
           </Paper>
         </Grid>
         <Grid item>
-          <Typography variant="h5">
+          <Typography variant="body">
             {randomGames[currentIndex].awayScore}
           </Typography>
         </Grid>
         <Grid item>
-          <Typography variant="h6">vs</Typography>
+          <Typography variant="body">vs</Typography>
         </Grid>
         <Grid item>
-          <Typography variant="h5">
+          <Typography variant="body">
             {randomGames[currentIndex].homeScore}
           </Typography>
         </Grid>
@@ -126,7 +126,7 @@ const MemoryGame = ({ onNext }) => {
             elevation={3}
             style={{ padding: "16px", backgroundColor: "#f5f5f5" }}
           >
-            <Typography variant="h6">
+            <Typography variant="body">
               {randomGames[currentIndex].homeTeam}
             </Typography>
           </Paper>
