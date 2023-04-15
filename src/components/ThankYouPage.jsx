@@ -14,7 +14,7 @@ const ThankYouPage = () => {
       <Typography variant="h4">תודה רבה על השתתפותך בשאלון!</Typography>
       <br />
       <Typography variant="h5">
-        תוצאותיך יפורסמו בקרוב בטבלת המובילים
+        יש לרענן את העמוד כדי לראות את מיקומך בטבלה
       </Typography>
     </div>
   );
