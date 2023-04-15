@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, Button, Grid } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 import DetailsEntry from "./components/DetailsEntry";
 import Quiz from "./components/Quiz";
 import MemoryGame from "./components/MemoryGame";
