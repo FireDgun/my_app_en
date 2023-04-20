@@ -179,7 +179,7 @@ const ResultsForm = ({ games1, onNext }) => {
             color="primary"
             disabled={!isFormComplete()}
           >
-            OK
+            {isFormComplete() ? "OK" : "יש למלא תוצאות לכל הקבוצות"}
           </Button>
         </Grid>
       </Grid>
