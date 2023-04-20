@@ -85,7 +85,7 @@ const MemoryGame = ({ onNext }) => {
     if (currentIndex === randomGames.length - 1) {
       onNext(randomGames);
     } else {
-      setCurrentIndex(currentIndex + 1);
+      setCurrentIndex((prev) => prev + 1);
     }
   };
   if (!randomGames.length) {

@@ -20,7 +20,7 @@ const CountDown = ({ time, onCountdownEnd, currentIndex }) => {
     if (secondsLeft === 0) {
       onCountdownEnd();
     }
-  }, [secondsLeft, onCountdownEnd]);
+  }, [secondsLeft]);
 
   const minutes = Math.floor(secondsLeft / 60);
   const seconds = secondsLeft % 60;
