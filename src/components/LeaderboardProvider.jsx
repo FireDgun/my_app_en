@@ -12,10 +12,8 @@ const LeaderboardProvider = ({ children, step }) => {
   const [updateMyScore, setUpdate] = useState(false);
   const [updateRank, setUpdateRank] = useState(false);
 
-  console.log(allUsers);
   useEffect(() => {
     if (step > 1 && step < 6) {
-      console.log("update my score");
       const myData = {
         userDetails: { name: "את/ה" },
         correctGuesses: localStorage.getItem("quizScore"),
@@ -35,7 +33,6 @@ const LeaderboardProvider = ({ children, step }) => {
 
   useEffect(() => {
     const getUsers = async () => {
-      console.log("getting users...");
       const querySnapshot = await getDocs(
         query(
           collection(firebase.firestore(), "results"),
@@ -51,7 +48,6 @@ const LeaderboardProvider = ({ children, step }) => {
   }, []);
 
   useEffect(() => {
-    console.log("ranking");
     setUsers(
       allUsers
         .map((user, index) => {

@@ -38,7 +38,6 @@ const ResultsForm = ({ games1, onNext }) => {
     setGames(shuffleArray(games1));
   }, []);
   const handleChange = (id, type, value) => {
-    console.log(userResults);
     setUserResults({
       ...userResults,
       [`${id}-${type}`]: parseInt(value) || 0,

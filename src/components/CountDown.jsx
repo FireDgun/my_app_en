@@ -9,10 +9,6 @@ const CountDown = ({ time, onCountdownEnd, currentIndex }) => {
   }, [time, currentIndex]);
 
   useEffect(() => {
-    console.log("currentIndex", currentIndex); // for debugging
-  }, [currentIndex]);
-
-  useEffect(() => {
     const intervalId = setInterval(() => {
       setSecondsLeft((prevSeconds) => prevSeconds - 1);
     }, 1000);

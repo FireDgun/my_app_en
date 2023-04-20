@@ -7,7 +7,6 @@ const Instructions = ({ text, onNext }) => {
   useEffect(() => {
     setUpdateRank((prev) => !prev);
   }, [setUpdateRank]);
-  console.log(text);
   return (
     <div>
       <Typography

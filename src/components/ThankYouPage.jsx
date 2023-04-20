@@ -5,7 +5,6 @@ import { LeaderboardContext } from "./LeaderboardProvider";
 const ThankYouPage = () => {
   const { setAllUsers, setUpdateRank } = useContext(LeaderboardContext);
   useEffect(() => {
-    console.log("hey");
     setAllUsers((prev) => prev.filter((user) => !user?.you));
     setUpdateRank((prev) => !prev);
   }, [setUpdateRank, setAllUsers]);

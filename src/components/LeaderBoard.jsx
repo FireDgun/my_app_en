@@ -12,7 +12,6 @@ import { LeaderboardContext } from "./LeaderboardProvider";
 const Leaderboard = () => {
   const { users } = useContext(LeaderboardContext);
 
-  console.log(users);
   return (
     <div>
       <Typography variant="h4" sx={{ textAlign: "center" }}>

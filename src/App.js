@@ -29,7 +29,6 @@ function App() {
     }
     setStep(step + 1);
   };
-  console.log(step);
   return (
     <LeaderboardProvider step={step}>
       <Container>
