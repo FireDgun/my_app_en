@@ -46,6 +46,9 @@ const DetailsEntry = ({ onNext }) => {
       <Grid item>
         <Typography variant="h4">!שלום רב, ברוך הבא לשאלון שלנו</Typography>
       </Grid>
+      <Grid item>
+        <Typography variant="body1">אורך השאלון: כ5 דקות</Typography>
+      </Grid>
       <Grid item sx={{ textAlign: "center" }}>
         <Typography variant="body1">הכנס את הפרטים שלך</Typography>
       </Grid>
