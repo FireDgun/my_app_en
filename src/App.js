@@ -33,11 +33,6 @@ function App() {
     <LeaderboardProvider step={step}>
       <Container>
         <Grid container>
-          {step > 3 && (
-            <Grid item lg={4} md={4} s={3}>
-              <Leaderboard />
-            </Grid>
-          )}
           <Grid item lg={8} md={8} s={3}>
             {step === 1 && <DetailsEntry onNext={nextStep} />}
             {step === 2 && (
@@ -57,6 +52,11 @@ function App() {
             {step === 6 && <ResultsForm games1={games} onNext={nextStep} />}
             {step === 7 && <ThankYouPage />}
           </Grid>
+          {step > 3 && (
+            <Grid item lg={4} md={4} s={3}>
+              <Leaderboard />
+            </Grid>
+          )}
         </Grid>
       </Container>
     </LeaderboardProvider>

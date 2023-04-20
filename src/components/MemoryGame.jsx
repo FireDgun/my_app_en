@@ -97,41 +97,45 @@ const MemoryGame = ({ onNext }) => {
         {randomGames[currentIndex].homeTeam} vs{" "}
         {randomGames[currentIndex].awayTeam}
       </Typography>
-      <Grid container spacing={2} alignItems="center" justifyContent="center">
-        <Grid item>
+      <Grid
+        container
+        spacing={2}
+        alignItems="center"
+        justifyContent="center"
+        xs={12}
+      >
+        <Grid item xs="auto">
           <Paper
             elevation={3}
-            style={{ padding: "16px", backgroundColor: "#f5f5f5" }}
+            style={{ padding: "5px", backgroundColor: "#f5f5f5" }}
           >
             <Typography variant="body1">
               {randomGames[currentIndex].awayTeam}
             </Typography>
           </Paper>
         </Grid>
-        <Grid item>
+        <Grid item xs="auto">
           <Typography variant="body1">
             {randomGames[currentIndex].awayScore}
           </Typography>
         </Grid>
-        <Grid item>
+        <Grid item xs="auto">
           <Typography variant="body1">vs</Typography>
         </Grid>
-        <Grid item>
+        <Grid item xs="auto">
           <Typography variant="body1">
             {randomGames[currentIndex].homeScore}
           </Typography>
         </Grid>
-        <Grid item>
-          <Paper
-            elevation={3}
-            style={{ padding: "16px", backgroundColor: "#f5f5f5" }}
-          >
+        <Grid item xs="auto">
+          <Paper style={{ padding: "16px", backgroundColor: "#f5f5f5" }}>
             <Typography variant="body1">
               {randomGames[currentIndex].homeTeam}
             </Typography>
           </Paper>
         </Grid>
       </Grid>
+
       <Button onClick={handleNext} variant="contained" color="primary">
         הבא
       </Button>
