@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "כלכלה התנהגותית",
+  "name": "שאלון ומשחק זיכרון סמינר כלכלה התנהגותית",
   "icons": [
     {
       "src": "favicon.ico",
