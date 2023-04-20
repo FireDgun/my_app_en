@@ -30,7 +30,7 @@ const Instructions = ({ text, onNext }) => {
         style={{ marginBottom: "16px", textAlign: "center" }}
       >
         שימו לב! המשתתף שיזכה בהכי הרבה נקודות מבין כל המשתתפים יזכה בשובר הטבה
-        על סך 100 שח
+        על סך 100 ש"ח
       </Typography>
       <Button onClick={onNext} variant="contained" color="primary">
         הבא
