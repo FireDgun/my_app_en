@@ -71,14 +71,14 @@ const games = [
 const MemoryGame = ({ onNext }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [randomGames, setRandomGames] = useState([]);
-  const [timer, setTimer] = useState(10);
+  const [timer, setTimer] = useState(7);
 
   useEffect(() => {
     setRandomGames(games);
     localStorage.setItem("games", JSON.stringify(games));
   }, []);
   useEffect(() => {
-    setTimer(10);
+    setTimer(7);
   }, [currentIndex]);
 
   const handleNext = () => {

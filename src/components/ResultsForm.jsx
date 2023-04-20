@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Typography, Grid, Select, MenuItem } from "@mui/material";
 import firebase from ".././firebase"; // Import firebase
 const generateInitialState = (games) => {
@@ -11,14 +11,37 @@ const generateInitialState = (games) => {
 
   return initialState;
 };
-const ResultsForm = ({ games, onNext }) => {
-  const [userResults, setUserResults] = useState(generateInitialState(games));
+function shuffleArray(array) {
+  let currentIndex = array.length,
+    temporaryValue,
+    randomIndex;
 
+  // While there remain elements to shuffle
+  while (currentIndex !== 0) {
+    // Pick a remaining element
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // Swap it with the current element
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+const ResultsForm = ({ games1, onNext }) => {
+  const [userResults, setUserResults] = useState(generateInitialState(games1));
+  const [games, setGames] = useState([]);
+  useEffect(() => {
+    setGames(shuffleArray(games1));
+  }, []);
   const handleChange = (id, type, value) => {
     console.log(userResults);
     setUserResults({
       ...userResults,
-      [`${id}-${type}`]: parseInt(value, 10) || 0,
+      [`${id}-${type}`]: parseInt(value) || 0,
     });
   };
 

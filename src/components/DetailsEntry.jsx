@@ -14,9 +14,21 @@ const DetailsEntry = ({ onNext }) => {
       favTeam: "",
     };
   });
+  const [emailError, setEmailError] = useState(false);
 
   const handleUserDetailsChange = (field, value) => {
     setUserDetails({ ...userDetails, [field]: value });
+  };
+  const validateEmail = (email) => {
+    // A simple email validation regex
+    const re =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  };
+  const handleEmailChange = (e) => {
+    const email = e.target.value;
+    handleUserDetailsChange("email", email);
+    setEmailError(!validateEmail(email));
   };
   useEffect(() => {
     localStorage.setItem("userDetails", JSON.stringify(userDetails));
@@ -45,12 +57,15 @@ const DetailsEntry = ({ onNext }) => {
             required
             onChange={(e) => handleUserDetailsChange("name", e.target.value)}
           />
+
           <TextField
             label="אימייל"
             type="email"
             required
             variant="outlined"
-            onChange={(e) => handleUserDetailsChange("email", e.target.value)}
+            error={emailError}
+            helperText={emailError && "Please enter a valid email address"}
+            onChange={handleEmailChange}
           />
         </Box>
       </Grid>
@@ -69,7 +84,9 @@ const DetailsEntry = ({ onNext }) => {
           color="primary"
           onClick={onNext}
           disabled={
-            userDetails.email === "" || userDetails.name === "" ? true : false
+            userDetails.email === "" || userDetails.name === "" || emailError
+              ? true
+              : false
           }
         >
           הבא

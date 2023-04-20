@@ -55,7 +55,7 @@ function App() {
               />
             )}
             {step === 5 && <MemoryGame onNext={nextStep} />}
-            {step === 6 && <ResultsForm games={games} onNext={nextStep} />}
+            {step === 6 && <ResultsForm games1={games} onNext={nextStep} />}
             {step === 7 && <ThankYouPage />}
           </Grid>
         </Grid>
