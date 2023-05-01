@@ -15,14 +15,14 @@ const LeaderboardProvider = ({ children, step }) => {
   useEffect(() => {
     if (step > 1 && step < 6) {
       const myData = {
-        userDetails: { name: "את/ה" },
+        userDetails: { name: "you" },
         correctGuesses: localStorage.getItem("quizScore"),
         you: true,
         id: 11111111111111,
       };
       setAllUsers((prevUsers) =>
         [
-          ...prevUsers.filter((item) => item?.userDetails?.name !== "את/ה"),
+          ...prevUsers.filter((item) => item?.userDetails?.name !== "you"),
           myData,
         ].sort(
           (a, b) => parseInt(b.correctGuesses) - parseInt(a.correctGuesses)

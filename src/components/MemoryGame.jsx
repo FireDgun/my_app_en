@@ -4,69 +4,70 @@ import CountDown from "./CountDown";
 
 const games = [
   {
-    homeTeam: "מכבי פתח תקווה",
-    awayTeam: "מכבי בני ריינה",
+    homeTeam: "Barcelona",
+    awayTeam: "Manchester United",
     id: 1,
     homeScore: 1,
     awayScore: 3,
   },
   {
-    homeTeam: "הפועל חיפה",
-    awayTeam: 'בית"ר ירושלים',
+    homeTeam: "Real Madrid",
+    awayTeam: "Arsenal",
     id: 2,
     homeScore: 1,
     awayScore: 1,
   },
   {
-    homeTeam: "הפועל תל אביב",
-    awayTeam: "סקציה נס ציונה",
+    homeTeam: "Paris Saint-Germain",
+    awayTeam: "Liverpool",
     id: 3,
     homeScore: 3,
     awayScore: 1,
   },
   {
-    homeTeam: "בני סכנין",
-    awayTeam: "הפועל באר שבע",
+    homeTeam: "Manchester City",
+    awayTeam: "Chelsea",
     id: 4,
     homeScore: 1,
     awayScore: 1,
   },
   {
-    homeTeam: "מכבי חיפה",
-    awayTeam: "הפועל חדרה",
+    homeTeam: "Juventus",
+    awayTeam: "Inter Milan",
     id: 5,
     homeScore: 2,
     awayScore: 2,
   },
   {
-    homeTeam: "הפועל חיפה",
-    awayTeam: "מכבי תל אביב",
+    homeTeam: "Atlético Madrid",
+    awayTeam: "AC Milan",
     id: 6,
     homeScore: 3,
     awayScore: 1,
   },
   {
-    homeTeam: "הפועל ירושלים",
-    awayTeam: "מ.ס אשדוד",
+    homeTeam: "Borussia Dortmund",
+    awayTeam: "Ajax",
     id: 7,
     homeScore: 2,
     awayScore: 1,
   },
   {
-    homeTeam: "בני יהודה",
-    awayTeam: "הפועל כפר סבא",
+    homeTeam: "Porto",
+    awayTeam: "Manchester City",
     id: 8,
     homeScore: 0,
     awayScore: 1,
   },
   {
-    homeTeam: "עירוני קרית שמונה",
-    awayTeam: "מכבי נתניה",
+    homeTeam: "RB Leipzig",
+    awayTeam: "Bayern Munich",
     id: 9,
     homeScore: 4,
     awayScore: 3,
   },
 ];
+
 
 const MemoryGame = ({ onNext }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -137,7 +138,7 @@ const MemoryGame = ({ onNext }) => {
       </Grid>
 
       <Button onClick={handleNext} variant="contained" color="primary">
-        הבא
+        next
       </Button>
       <CountDown
         time={timer}

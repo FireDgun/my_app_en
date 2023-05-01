@@ -6,34 +6,34 @@ import { LeaderboardContext } from "./LeaderboardProvider";
 
 const questions = [
   {
-    text: "את/ה במירוץ ואת/ה עוקפ/ת את האדם במקום השני. באיזה מקום את/ה נמצא כעת",
+    text: "You are in a race and you overtake the person in second place. What position in the race are you currently in?",
     correctAnswer: 2,
     id: 1,
   },
   {
-    text: " כמה סמ״ק של חול יש בבור בגודל 3⋅3⋅3",
+    text: " How many cubic meters of sand are there in a pit measuring 3⋅3⋅3 ?",
     correctAnswer: 0,
 
     id: 2,
   },
   {
-    text: "ל-5 מכונות לוקח 5 דקות לייצר 5 מוצרים. כמה דקות ייקח ל100 מכונות לייצר 100 מוצרים",
+    text: "5 machines take 5 minutes to produce 5 products. How many minutes will it take 100 machines to produce 100 products?",
     correctAnswer: 5,
 
     id: 3,
   },
   {
-    text: "חילזון נמצא בתחתית באר בגובה 30 מטר. בכל יום הוא מטפס למעלה 3 מטר, אבל בכל לילה הוא מחליק למטה 2 מטר, כמה ימים ייקח לחילזון. לטפס מהבאר",
+    text: "A snail is found at the bottom of a well at a height of 30 meters. Every day it climbs up 3 meters, but every night it slides down 2 meters, how many days will it take a snail. climb out of the well?",
     correctAnswer: 28,
     id: 4,
   },
   {
-    text: " על מדף בספרייה נמצא ספר. הוא הספר השלישי מימין והחמישי משמאל. כמה ספרים יש על המדף",
+    text: " There is a book on a shelf in the library. He is the third book from the right and the fifth from the left. How many books are there on the shelf?",
     correctAnswer: 7,
     id: 5,
   },
   {
-    text: "אם רופא ממליץ עכשיו לקחת כדור כל חצי שעה. תוך כמה דקות תיקח 3 כדורים",
+    text: "If a doctor now recommends taking a pill every half hour. In how many minutes will you take 3 pills?",
     correctAnswer: 60,
     id: 6,
   },
@@ -120,18 +120,11 @@ const Quiz = ({ onNext }) => {
       <Grid item>
         <Card style={{ transform: "scaleY(0.9)" }}>
           <CardContent>
-            {questions[currentIndex].text.split(".").map((line, index) => (
               <Typography
                 variant="h4"
-                sx={{ textAlign: "right" }}
-                key={JSON.stringify(line)}
               >
-                {index === questions[currentIndex].text.split(".").length - 1
-                  ? "?"
-                  : ""}
-                {line}
+                {questions[currentIndex].text}
               </Typography>
-            ))}
           </CardContent>
           <CardMedia
             component="img"
@@ -153,7 +146,6 @@ const Quiz = ({ onNext }) => {
               label="Answer"
               variant="outlined"
               fullWidth
-              dir="rtl"
               native
             >
               <option value="" />

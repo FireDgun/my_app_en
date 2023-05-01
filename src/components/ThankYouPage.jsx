@@ -10,10 +10,10 @@ const ThankYouPage = () => {
   }, [setUpdateRank, setAllUsers]);
   return (
     <div style={{ textAlign: "center", marginTop: "100px" }}>
-      <Typography variant="h4">!תודה רבה על השתתפותך בשאלון</Typography>
+      <Typography variant="h4">Thank you very much for your participation in the questionnaire!</Typography>
       <br />
       <Typography variant="h5">
-        יש לרענן את העמוד כדי לראות את מיקומך בטבלה
+      Refresh the page to see your rank
       </Typography>
     </div>
   );

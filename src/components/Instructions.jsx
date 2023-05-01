@@ -11,29 +11,17 @@ const Instructions = ({ text, onNext }) => {
     <div>
       <Typography
         variant="h4"
-        style={{ marginBottom: "16px", textAlign: "right" }}
+        style={{ marginBottom: "16px" }}
       >
-        הוראות
+        Instructions
       </Typography>
-      {text.split(".").map((line, index) => (
         <Typography
           variant="body1"
-          sx={{ textAlign: "right" }}
-          key={JSON.stringify(line)}
         >
-          {index === text.split(".").length - 1 ? "!" : "."}
-          {line}
+          {text}
         </Typography>
-      ))}
-      {/* <Typography
-        variant="h6"
-        style={{ marginBottom: "16px", textAlign: "center" }}
-      >
-        שימו לב! המשתתף שיזכה בהכי הרבה נקודות מבין כל המשתתפים יזכה בשובר הטבה
-        על סך 100 ש"ח
-      </Typography> */}
       <Button onClick={onNext} variant="contained" color="primary">
-        הבא
+        next
       </Button>
     </div>
   );

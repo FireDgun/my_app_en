@@ -96,7 +96,7 @@ const ResultsForm = ({ games1, onNext }) => {
   return (
     <Grid
       container
-      style={{ minHeight: "90vh", padding: "0px", textAlign: "right" }}
+      style={{ minHeight: "90vh", padding: "0px"}}
     >
       <Grid
         item
@@ -108,8 +108,8 @@ const ResultsForm = ({ games1, onNext }) => {
         alignItems="center"
       >
         <Typography variant="h6">
-          הכנס את תוצאות המשחקים על פי מה שאת/ה זוכר/ת
-        </Typography>
+        Enter the results of the games according to what you remember
+                </Typography>
         <br />
         {games.map((game) => (
           <Grid
@@ -179,7 +179,7 @@ const ResultsForm = ({ games1, onNext }) => {
             color="primary"
             disabled={!isFormComplete()}
           >
-            {isFormComplete() ? "OK" : "יש למלא תוצאות לכל הקבוצות"}
+            {isFormComplete() ? "OK" : "Results must be filled in for all groups"}
           </Button>
         </Grid>
       </Grid>

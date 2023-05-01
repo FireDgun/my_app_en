@@ -18,11 +18,11 @@ function App() {
       setStep(7);
     }
   }, []);
-  const textInstructionsForMemory = ` במשחק זיכרון זה, יוצגו לך התוצאות של סדרת משחקי כדורגל. (שימו לב התוצאות לא קשורות למשחקים שהתרחשו במציאות). המשימה שלך היא
-  לזכור את התוצאות עבור כל משחק. לאחר שתעבור על כל המשחקים, תתבקש להזין את
-  התוצאות שאתה זוכר. ככל שהזיכרון שלך מדויק יותר, כך הציון שלך יהיה גבוה
-  יותר . שימו לב כי יש רק 7 שניות לצפות בכל תוצאה, ואין אפשרות ללחוץ חזור. בהצלחה`;
-  const textInstructionForQuestions = ` בחלק הראשון של השאלון תתבקשו לענות על 5 שאלות הגיון קצרות. עבור כל תשובה נכונה תקבלו 10 נקודות`;
+  const textInstructionsForMemory = ` In this memory game, you will be shown the results of a series of football matches. (Note that the results are not related to games that took place in reality). Your mission is
+  Remember the results for each game. After you go through all the games, you will be asked to enter the
+  The results you remember. The more accurate your memory, the higher your score will be
+  More . Please note that there are only 7 seconds to view each result, and it is not possible to click back. Good luck `
+  const textInstructionForQuestions = ` In the first part of the questionnaire you will be asked to answer 5 short reasoning questions. For each correct answer you will receive 10 points`;
   const nextStep = (newGames) => {
     if (newGames) {
       setGames(newGames);

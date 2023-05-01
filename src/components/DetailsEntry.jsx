@@ -44,42 +44,51 @@ const DetailsEntry = ({ onNext }) => {
       style={{ minHeight: "90vh", padding: "32px" }}
     >
       <Grid item>
-        <Typography variant="h4">!שלום רב, ברוך הבא לשאלון שלנו</Typography>
+        <Typography variant="h4">Hello, welcome to our questionnaire</Typography>
       </Grid>
       <Grid item>
-        <Typography variant="body1">אורך השאלון: כ5 דקות</Typography>
+        <Typography variant="body1">Questionnaire length: about 5 minutes</Typography>
       </Grid>
       <Grid item sx={{ textAlign: "center" }}>
-        <Typography variant="body1">הכנס את הפרטים שלך</Typography>
+        <Typography variant="body1">Enter your details</Typography>
       </Grid>
       <Grid item>
         <Box sx={{ display: "flex", gap: "16px" }}>
           <TextField
-            label="כינוי"
+            label="nick name"
             variant="outlined"
             required
             onChange={(e) => handleUserDetailsChange("name", e.target.value)}
           />
 
-          <TextField
-            label="אימייל"
+          {/* <TextField
+            label="email"
             type="email"
             required
             variant="outlined"
             error={emailError}
             helperText={emailError && "Please enter a valid email address"}
             onChange={handleEmailChange}
-          />
+          /> */}
         </Box>
       </Grid>
 
       <Grid item>
-        <TextField
-          label="קבוצת כדורגל מועדפת מישראל"
-          fullWidth
-          variant="outlined"
-          onChange={(e) => handleUserDetailsChange("favTeam", e.target.value)}
-        />
+      <TextField
+  label="If you are a fan of a particular football team, mention it here"
+  fullWidth
+  multiline
+  rows={4}
+  variant="outlined"
+  InputLabelProps={{
+    style: {
+      whiteSpace: 'pre-wrap',
+      wordWrap: 'break-word',
+    },
+  }}
+  onChange={(e) => handleUserDetailsChange("favTeam", e.target.value)}
+/>
+
       </Grid>
       <Grid item>
         <Button
@@ -87,12 +96,12 @@ const DetailsEntry = ({ onNext }) => {
           color="primary"
           onClick={onNext}
           disabled={
-            userDetails.email === "" || userDetails.name === "" || emailError
+            userDetails.email === "" || userDetails.name === "" 
               ? true
               : false
           }
         >
-          הבא
+          next
         </Button>
       </Grid>
     </Grid>
