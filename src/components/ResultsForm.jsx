@@ -3,10 +3,19 @@ import { Button, Typography, Grid, Select, MenuItem } from "@mui/material";
 import firebase from ".././firebase"; // Import firebase
 const generateInitialState = (games) => {
   const initialState = {};
-
+  let saveGusses = JSON.parse(localStorage.getItem("userGuesses"));
+  if (!saveGusses) saveGusses = [];
   games.forEach((game) => {
-    initialState[`${game.id}-home`] = "";
-    initialState[`${game.id}-away`] = "";
+    if (saveGusses[`${game.id}-home`] || saveGusses[`${game.id}-home`] === 0) {
+      initialState[`${game.id}-home`] = saveGusses[`${game.id}-home`];
+    } else {
+      initialState[`${game.id}-home`] = "";
+    }
+    if (saveGusses[`${game.id}-away`] || saveGusses[`${game.id}-away`] === 0) {
+      initialState[`${game.id}-away`] = saveGusses[`${game.id}-away`];
+    } else {
+      initialState[`${game.id}-away`] = "";
+    }
   });
 
   return initialState;
@@ -38,9 +47,18 @@ const ResultsForm = ({ games1, onNext }) => {
     setGames(shuffleArray(games1));
   }, []);
   const handleChange = (id, type, value) => {
-    setUserResults({
-      ...userResults,
-      [`${id}-${type}`]: parseInt(value) || 0,
+    setUserResults((prev) => {
+      localStorage.setItem(
+        "userGuesses",
+        JSON.stringify({
+          ...prev,
+          [`${id}-${type}`]: parseInt(value) || 0,
+        })
+      );
+      return {
+        ...prev,
+        [`${id}-${type}`]: parseInt(value) || 0,
+      };
     });
   };
 
@@ -94,10 +112,7 @@ const ResultsForm = ({ games1, onNext }) => {
     return Object.values(userResults).every((value) => value !== "");
   };
   return (
-    <Grid
-      container
-      style={{ minHeight: "90vh", padding: "0px"}}
-    >
+    <Grid container style={{ minHeight: "90vh", padding: "0px" }}>
       <Grid
         item
         xs={12}
@@ -108,8 +123,8 @@ const ResultsForm = ({ games1, onNext }) => {
         alignItems="center"
       >
         <Typography variant="h6">
-        Enter the results of the games according to what you remember
-                </Typography>
+          Enter the results of the games according to what you remember
+        </Typography>
         <br />
         {games.map((game) => (
           <Grid
@@ -179,7 +194,9 @@ const ResultsForm = ({ games1, onNext }) => {
             color="primary"
             disabled={!isFormComplete()}
           >
-            {isFormComplete() ? "OK" : "Results must be filled in for all groups"}
+            {isFormComplete()
+              ? "OK"
+              : "Results must be filled in for all groups"}
           </Button>
         </Grid>
       </Grid>
