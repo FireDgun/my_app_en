@@ -98,9 +98,7 @@ const DetailsEntry = ({ onNext }) => {
           variant="contained"
           color="primary"
           onClick={onNext}
-          disabled={
-            userDetails.email === "" || userDetails.name === "" ? true : false
-          }
+          disabled={userDetails.name === "" ? true : false}
         >
           next
         </Button>
