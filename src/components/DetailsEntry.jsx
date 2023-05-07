@@ -10,7 +10,7 @@ const DetailsEntry = ({ onNext }) => {
     }
     return {
       name: "",
-      email: "",
+      email: "english@version.com",
       favTeam: "",
     };
   });
@@ -44,10 +44,14 @@ const DetailsEntry = ({ onNext }) => {
       style={{ minHeight: "90vh", padding: "32px" }}
     >
       <Grid item>
-        <Typography variant="h4">Hello, welcome to our questionnaire</Typography>
+        <Typography variant="h4">
+          Hello, welcome to our questionnaire
+        </Typography>
       </Grid>
       <Grid item>
-        <Typography variant="body1">Questionnaire length: about 5 minutes</Typography>
+        <Typography variant="body1">
+          Questionnaire length: about 5 minutes
+        </Typography>
       </Grid>
       <Grid item sx={{ textAlign: "center" }}>
         <Typography variant="body1">Enter your details</Typography>
@@ -74,21 +78,20 @@ const DetailsEntry = ({ onNext }) => {
       </Grid>
 
       <Grid item>
-      <TextField
-  label="If you are a fan of a particular football team, mention it here"
-  fullWidth
-  multiline
-  rows={4}
-  variant="outlined"
-  InputLabelProps={{
-    style: {
-      whiteSpace: 'pre-wrap',
-      wordWrap: 'break-word',
-    },
-  }}
-  onChange={(e) => handleUserDetailsChange("favTeam", e.target.value)}
-/>
-
+        <TextField
+          label="If you are a fan of a particular football team, mention it here"
+          fullWidth
+          multiline
+          rows={4}
+          variant="outlined"
+          InputLabelProps={{
+            style: {
+              whiteSpace: "pre-wrap",
+              wordWrap: "break-word",
+            },
+          }}
+          onChange={(e) => handleUserDetailsChange("favTeam", e.target.value)}
+        />
       </Grid>
       <Grid item>
         <Button
@@ -96,9 +99,7 @@ const DetailsEntry = ({ onNext }) => {
           color="primary"
           onClick={onNext}
           disabled={
-            userDetails.email === "" || userDetails.name === "" 
-              ? true
-              : false
+            userDetails.email === "" || userDetails.name === "" ? true : false
           }
         >
           next
